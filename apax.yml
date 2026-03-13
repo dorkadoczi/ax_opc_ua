@@ -101,7 +101,7 @@ scripts:
   # Compiles the hardware description (input: sources) to generate compiled HW artifacts (output: binaries), IO- and HwIdent mapping tables (SystemConstants).
   hw_compile: hwc compile --input hwc --output $HW_BIN_FOLDER
   # Loads the target-specific compiled hardware artifacts onto the PLC.
-  hw_load: hwld load --input $HW_BIN_FOLDER/$PLC_NAME --target $IP_ADDRESS --accept-security-disclaimer --certificate $TLS_CONNECT_CERTFILE --master-password $MASTER_PW 
+  hw_load: hwld load --input $HW_BIN_FOLDER/$PLC_NAME --target $IP_ADDRESS --accept-security-disclaimer --certificate $TLS_CONNECT_CERTFILE --master-password $MASTER_PW
   # Loads the target-specific compiled software artifacts onto the PLC.
   load: sld load --input $SW_BIN_FOLDER --target $IP_ADDRESS --restart --accept-security-disclaimer --log debug -C $TLS_CONNECT_CERTFILE --username $USER_NAME --password $USER_PASSWORD
   # Builds and download the SW application to the target PLC.
@@ -109,6 +109,17 @@ scripts:
   stop_plc: apax plc-control stop -t PLC_1 --certificate "certificate/reference_x509.crt" --username User1 --password 1Siemens#
 
   hw_factory_reset: hwld load --reset-plc:KeepOnlyIP --target $IP_ADDRESS -p $USER_PASSWORD -u $USER_NAME --certificate $TLS_CONNECT_CERTFILE  --accept-security-disclaimer
+
+  fill:
+    - apax mod --targetIP $IP_ADDRESS  --certificate $TLS_CONNECT_CERTFILE --username $USERNAME --password $PASSWORD --symbol "tank.inputValve.cOpenPercent" --value 10
+  stopFill:
+    - apax mod --targetIP $IP_ADDRESS  --certificate $TLS_CONNECT_CERTFILE --username $USERNAME --password $PASSWORD --symbol "tank.inputValve.cOpenPercent" --value 0
+  empty:
+    - apax mod --targetIP $IP_ADDRESS  --certificate $TLS_CONNECT_CERTFILE --username $USERNAME --password $PASSWORD --symbol "tank.outputValve.cOpenPercent" --value 20
+  stopEmpty:
+    - apax mod --targetIP $IP_ADDRESS  --certificate $TLS_CONNECT_CERTFILE --username $USERNAME --password $PASSWORD --symbol "tank.outputValve.cOpenPercent" --value 0
+
+
 
   dlplc:
     - apax build
@@ -121,3 +132,5 @@ scripts:
 dependencies:
   "@ax/hw-s7-1500": ^4.3.0
   "@ax/st-opcua.stc-plugin": ^2.0.0
+  "@ax/simatic-clocks": ^11.0.14
+  "@ax/simatic-alarming": ^5.1.0

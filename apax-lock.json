@@ -8,7 +8,9 @@
     "version": "0.0.1",
     "dependencies": {
       "@ax/hw-s7-1500": "^4.3.0",
-      "@ax/st-opcua.stc-plugin": "^2.0.0"
+      "@ax/st-opcua.stc-plugin": "^2.0.0",
+      "@ax/simatic-clocks": "^11.0.14",
+      "@ax/simatic-alarming": "^5.1.0"
     },
     "devDependencies": {
       "@ax/sdk": "^2510.0.0",
@@ -434,6 +436,31 @@
         "@ax/trace": "3.3.0"
       }
     },
+    "@ax/simatic-alarming": {
+      "name": "@ax/simatic-alarming",
+      "version": "5.1.0",
+      "integrity": "sha512-EieFWV6VuuH4FUDuEgtab7tFemvp9OM8LpavmTURSPTHRlL9XaujKPrXXzSbOwhzzHjWqXNMMawbZvyhIlre1w==",
+      "resolved": "https://registry.simatic-ax.siemens.io/@ax/simatic-alarming/-/simatic-alarming-5.1.0.tgz",
+      "dependencies": {
+        "@ax/simatic-alarming-stc-plugin": "5.1.0",
+        "@ax/system-selection": "^10.0.0",
+        "@ax/system-strings": "^10.0.0"
+      }
+    },
+    "@ax/simatic-alarming-stc-plugin": {
+      "name": "@ax/simatic-alarming-stc-plugin",
+      "version": "5.1.0",
+      "integrity": "sha512-I2hyWAoz4pC+eLVU6998GpZcyD55EugxQh41nsT1BsS2IcONhhccODri9qQRE0gFApxG/AQEqLupwFOcy+85Bg==",
+      "resolved": "https://registry.simatic-ax.siemens.io/@ax/simatic-alarming-stc-plugin/-/simatic-alarming-stc-plugin-5.1.0.tgz",
+      "dependencies": {}
+    },
+    "@ax/simatic-clocks": {
+      "name": "@ax/simatic-clocks",
+      "version": "11.0.14",
+      "integrity": "sha512-TLlV+2uV9vjhxh7c0newDhj2pIiR2blN36Ztf7hPQxG6DloDLKAbYkZpHEUMi/lhC5gIiSAUnBPbDKOnXoA2AQ==",
+      "resolved": "https://registry.simatic-ax.siemens.io/@ax/simatic-clocks/-/simatic-clocks-11.0.14.tgz",
+      "dependencies": {}
+    },
     "@ax/simatic-package-tool": {
       "name": "@ax/simatic-package-tool",
       "version": "2.0.17",
@@ -570,6 +597,13 @@
       "version": "10.3.25",
       "integrity": "sha512-xRLr8yiu0vEvgtWAtVnaFxpRVJg5ouwlu/7/iYhhnI0fFxHwp7y3YLZE1vvQ2zG66cFoCKcrvX0ZV14jJqacyA==",
       "resolved": "https://registry.simatic-ax.siemens.io/@ax/system-math/-/system-math-10.3.25.tgz",
+      "dependencies": {}
+    },
+    "@ax/system-selection": {
+      "name": "@ax/system-selection",
+      "version": "10.3.25",
+      "integrity": "sha512-fvnnhVmMmtSThldaufASQ+xeFLLMD5q6gEJp3cueK+9ZDZ2/8xE4ydSgD5cWlor4RtaNtWQpQ4ElSCQOlf1uLQ==",
+      "resolved": "https://registry.simatic-ax.siemens.io/@ax/system-selection/-/system-selection-10.3.25.tgz",
       "dependencies": {}
     },
     "@ax/system-strings": {

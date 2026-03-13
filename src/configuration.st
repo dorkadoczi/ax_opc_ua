@@ -1,19 +1,17 @@
-USING Siemens.AX.Quickstart;
+//Change to SymbolName and use the SymbolName TIA project for proper mappings with string nodeIds
+{OpcUa.NodeGenerator.IdType = AutoIncrement}
 CONFIGURATION MyConfiguration
-    TASK Main(Priority := 1, Interval := T#1000ms);
-    
-    PROGRAM P1 WITH Main: MainProgram;
-        
+    TASK Main(Interval := T#50ms, Priority := 1);
+    PROGRAM P1 WITH Main: WaterTank;
+
     VAR_GLOBAL
+        {OpcUa.accesslevel=ReadWrite}
+        {S7.extern=ReadWrite}
+        tank: Tank;
         
-        directionRight : BOOL;
+        {OpcUa.accesslevel=ReadWrite}
+        {S7.Extern=ReadWrite}
+        {resource=alarming?refid:dd62150c}
+        highLevelAlarm : Siemens.Simatic.Alarming.ProgramAlarm;
     END_VAR
-END_CONFIGURATION
-{OpcUa.NodeGenerator.IdType = SymbolName} // Use fully-qualified variable names as OPC UA NodeIds
-CONFIGURATION PLC_1
-  VAR_GLOBAL
-    {S7.extern = ReadWrite} // Make var1 Read/Write accessible to the Web API and OPC UA Node Generator
-    {OpcUa.AccessLevel = WriteOnly}  // Create an OPC UA node mapped to var1 with AccessLevel WriteOnly
-    sr : Shiftregister;
-  END_VAR
 END_CONFIGURATION

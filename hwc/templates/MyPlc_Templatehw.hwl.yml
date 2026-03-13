@@ -17,18 +17,15 @@ Templates:
         OrderNumber: '6ES7 515-2AN03-0AB0'
         Version: 'V4.0'
       Services:
-      - Type: 'WebServer'
-        Enabled: False
-        Parameters:
-          HttpsOnly: True
       - Type: 'OpcUaServer'
         Enabled: True
         Parameters:
           SecurityPolicies:
-          - 'NoSecurity'
+          - NoSecurity
           AutoAcceptAllClientCertificates: True
           Port: 4840
-          AlarmsAndConditionsEnable: False
+          AlarmsAndConditionsEnable: True
+          AlarmsAndConditionsAcknowledgeActive: True
       
       Interfaces:
       - Name: 'PROFINET_interface_1'
