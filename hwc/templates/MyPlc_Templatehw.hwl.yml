@@ -1,0 +1,90 @@
+Templates:
+  Modules:
+  - Name: 'MyPlc_Template'
+    Placeholders:
+    - Name: 'NAME'
+    - Name: 'IP_ADDRESS_X1'
+      Value: '192.168.0.1/24'
+    - Name: 'PROFINET_DEVICE_NAME_X1'
+      Value: 'plc_1.profinet_interface_1'
+    - Name: 'IP_ADDRESS_X2'
+      Value: '192.168.1.1/24'
+    - Name: 'PROFINET_DEVICE_NAME_X2'
+      Value: 'plc_1.profinet_interface_2'
+    Content:
+      Name: '${NAME}'
+      TypeIdentifier:
+        OrderNumber: '6ES7 515-2AN03-0AB0'
+        Version: 'V4.0'
+      Services:
+      - Type: 'WebServer'
+        Enabled: False
+        Parameters:
+          HttpsOnly: True
+      - Type: 'OpcUaServer'
+        Enabled: True
+        Parameters:
+          SecurityPolicies:
+          - 'NoSecurity'
+          AutoAcceptAllClientCertificates: True
+          Port: 4840
+          AlarmsAndConditionsEnable: False
+      
+      Interfaces:
+      - Name: 'PROFINET_interface_1'
+        Label: 'X1'
+        Addresses:
+        - Type: 'IPv4'
+          Address: '${IP_ADDRESS_X1}'
+        - Type: 'Profinet'
+          ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+        
+      - Name: 'PROFINET_interface_2'
+        Label: 'X2'
+        Addresses:
+        - Type: 'IPv4'
+          Address: '${IP_ADDRESS_X2}'
+        - Type: 'Profinet'
+          ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X2}'
+        
+      Ports:
+      - Name: 'Port_1'
+        Label: 'X1 P1'
+        
+      - Name: 'Port_2'
+        Label: 'X1 P2'
+        
+      - Name: 'Port_3'
+        Label: 'X2 P1'
+       
+      Parameters:
+        CentralAlarmManagement: True
+      # Possible values: 0 - NoLicense | 1 - SimaticOpcUaS71500Small | 2 - SimaticOpcUaS71500Medium | 3 - SimaticOpcUaS71500Large
+        OpcUaPurchasedLicense: 2
+      # Possible values: 0 - NoLicense | 1 - Value1X | 2 - Value2X | 3 - Value3X | 4 - Value4X | 5 - Value5X
+      UserManagement:
+        Users:
+        # UserManagement parameters listed below are intended as a sample. It is essential to adjust these settings according to your specific requirements before using them in your project.
+        # To fully configure the user account, you must set a password for the user defined below. Please refer to the user documentation for instructions on setting passwords.
+          - Name: 'User1'
+            AssignedRoles:
+            - 'Role1'
+        Roles:
+        # UserManagement parameters listed below are intended as a sample. It is essential to adjust these settings according to your specific requirements before using them in your project.
+          - Name: 'Role1'
+            FunctionRights:
+            - 'ReadPlcVariables'
+            - 'WritePlcVariables'
+            - 'ReadFiles'
+            - 'QueryDiagnostics'
+            - 'FlashLed'
+            - 'AccessProtectionFailsafeAccess'
+            - 'AccessProtectionFullAccess'
+            - 'AccessProtectionHMIAccess'
+            - 'AccessProtectionReadAccess'
+            - 'OpcUAServerAccess'
+            - 'OpcUAManageCertificates'
+            - 'ManageUserDefinedWebPages'
+            - 'OpenUserDefinedWebPages'
+            - 'WriteUserDefinedWebPages'
+      

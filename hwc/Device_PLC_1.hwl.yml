@@ -1,0 +1,7 @@
+
+Devices:
+- Name: device_plc
+  Modules:
+  - Apply: MyPlc_Template
+    Arguments:
+     Name: PLC_1

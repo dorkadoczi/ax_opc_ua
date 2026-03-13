@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "HardwareIdentifiers": [
+    {
+      "Name": "device_plc",
+      "Value": 32
+    },
+    {
+      "Name": "device_plc~PLC_1",
+      "Value": 48
+    },
+    {
+      "Name": "device_plc~PLC_1~CPU display_1",
+      "Value": 54
+    },
+    {
+      "Name": "device_plc~PLC_1~Card reader/writer_1",
+      "Value": 51
+    },
+    {
+      "Name": "device_plc~PLC_1~OPC UA_1",
+      "Value": 117
+    },
+    {
+      "Name": "device_plc~PLC_1~PROFINET_interface_1",
+      "Value": 64
+    },
+    {
+      "Name": "device_plc~PLC_1~PROFINET_interface_1~Port_1",
+      "Value": 65
+    },
+    {
+      "Name": "device_plc~PLC_1~PROFINET_interface_1~Port_2",
+      "Value": 66
+    },
+    {
+      "Name": "device_plc~PLC_1~PROFINET_interface_2",
+      "Value": 72
+    },
+    {
+      "Name": "device_plc~PLC_1~PROFINET_interface_2~Port_3",
+      "Value": 73
+    },
+    {
+      "Name": "device_plc~PLC_1~Virtual communication interface",
+      "Value": 135
+    },
+    {
+      "Name": "device_plc~Rail_0",
+      "Value": 256
+    }
+  ]
+}
